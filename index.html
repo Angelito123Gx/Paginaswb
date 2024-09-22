@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>FLORES</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+
+        * {
+            font-family: 'Poppins', cursive;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: azure;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden; /* Evita el scroll */
+            position: relative; /* Necesario para el posicionamiento absoluto de los corazones */
+        }
+
+        .greetings {
+            font-size: 6rem;
+            font-weight: 900;
+        }
+
+        .greetings > span {
+            animation: glow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                color: #fff;
+                text-shadow: 0 0 12px #fbff00, 0 0 50px #fbff00, 0 0 100px #fbff00;
+            }
+            10%, 90% {
+                color: #696565;
+                text-shadow: none;
+            }
+        }
+
+        .description {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fbff00;
+        }
+
+        .button a {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #111;
+        }
+
+        @media screen and (max-width: 574px) {
+            .greetings {
+                display: block;
+                font-size: 3rem;
+                font-weight: 500;
+                text-align: center;
+            }
+            .description {
+                font-size: 1rem;
+            }
+            .button a {
+                font-size: .5rem;
+            }
+        }
+
+        /* Estilo para el botón */
+        .button button {
+            background-color: yellow; /* Fondo amarillo */
+            border: none; /* Sin bordes */
+            padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
+            font-size: 18px; /* Tamaño de fuente */
+            cursor: pointer;
+            position: relative; /* Necesario para el resplandor */
+            border-radius: 20px; /* Esquinas redondeadas */
+            transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
+        }
+
+        /* Efecto de resplandor al pasar el cursor sobre el botón */
+        .button button:hover {
+            background-color: orange; /* Cambia el color de fondo al pasar el mouse a naranja */
+            box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow; /* Efecto de resplandor amarillo */
+        }
+
+        /* Estilo para los corazones */
+        .heart {
+            position: absolute;
+            font-size: 3rem; /* Tamaño del corazón */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: red;
+        }
+
+        .small-text {
+            font-size: 1rem; /* Tamaño del texto dentro del corazón */
+            color: white; /* Color del texto */
+            position: relative; /* Necesario para que el texto esté dentro del corazón */
+            top: -10px; /* Ajusta la posición del texto */
+        }
+    </style>
+</head>
+<body>
+    <div class="greetings">
+        <span>Q</span>
+        <span>U</span>
+        <span>E</span>
+        <span>R</span>
+        <span>I</span>
+        <span>D</span>
+        <span>A</span>
+        &nbsp;
+        <span>R</span>
+        <span>A</span>
+        <span>T</span>
+        <span>A</span>
+    </div>
+    <div class="description">
+        <span>tengo un regalito para tí!!</span>
+    </div>
+    <div class="button">
+        <button>
+            <a href="FLORES.html">Haga Clic</a>
+        </button>
+    </div>
+
+    <!-- Corazones con texto, generando múltiples instancias -->
+    <div class="heart" style="top: 10%; left: 10%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 20%; left: 30%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 30%; left: 70%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 50%; left: 20%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 70%; left: 60%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 80%; left: 40%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 30%; left: 10%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 60%; left: 80%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 50%; left: 50%;">❤️<span class="small-text">susan rata</span></div>
+    <div class="heart" style="top: 90%; left: 20%;">❤️<span class="small-text">susan rata</span></div>
+
+    <script>
+        const hearts = document.querySelectorAll('.heart');
+
+        hearts.forEach(heart => {
+            let posX = Math.random() * (window.innerWidth - 50);
+            let posY = Math.random() * (window.innerHeight - 50);
+            heart.style.left = posX + 'px';
+            heart.style.top = posY + 'px';
+
+            let directionX = (Math.random() < 0.5 ? 1 : -1);
+            let directionY = (Math.random() < 0.5 ? 1 : -1);
+            let speedX = Math.random() * 0.5 + 0.5; // Velocidad horizontal
+            let speedY = Math.random() * 0.5 + 0.5; // Velocidad vertical
+
+            function moveHeart() {
+                posX += speedX * directionX;
+                posY += speedY * directionY;
+
+                // Verifica colisiones con los bordes
+                if (posX <= 0 || posX >= window.innerWidth - 50) {
+                    directionX *= -1; // Cambia de dirección al chocar
+                }
+                if (posY <= 0 || posY >= window.innerHeight - 50) {
+                    directionY *= -1; // Cambia de dirección al chocar
+                }
+
+                heart.style.left = posX + 'px';
+                heart.style.top = posY + 'px';
+
+                requestAnimationFrame(moveHeart);
+            }
+
+            moveHeart();
+        });
+    </script>
+</body>
+</html>
+
